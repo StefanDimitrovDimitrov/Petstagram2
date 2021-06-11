@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Petstagram2.common'
+    'Petstagram2.common',
+    'Petstagram2.pets'
 ]
 
 MIDDLEWARE = [
