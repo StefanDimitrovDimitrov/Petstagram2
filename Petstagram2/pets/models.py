@@ -1,12 +1,11 @@
 from django.db import models
 
-class Pet(models.Model):
 
+class Pet(models.Model):
     DOG = 'dog'
     CAT = 'cat'
     PARROT = 'parrot'
     UNKNOWN = 'unknown'
-
 
     PET_TYPES = (
         (DOG, 'Dog'),
@@ -15,13 +14,13 @@ class Pet(models.Model):
         (UNKNOWN, 'Unknown'),
     )
 
-
-
     type = models.CharField(max_length=7, choices=PET_TYPES)
     name = models.CharField(max_length=6, blank=False)
     age = models.PositiveIntegerField(blank=False)
     description = models.TextField(blank=False)
-    image_url = models.URLField()
+    image = models.ImageField(
+        upload_to='pets',
+    )
 
     # def __str__(self):
     #     return f'{self.name}, {self.age}, {self.type}'

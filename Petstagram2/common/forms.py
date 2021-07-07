@@ -2,7 +2,6 @@ from django import forms
 
 from Petstagram2.common.models import Comment
 
-
 # class CommentForm(forms.Form):
 #     text = forms.CharField(
 #         widget= forms.Textarea(
@@ -16,7 +15,7 @@ from Petstagram2.pets.models import Pet
 
 class CommentForm(forms.ModelForm):
     pet_pk = forms.IntegerField(
-        widget = forms.HiddenInput()
+        widget=forms.HiddenInput()
     )
 
     class Meta:

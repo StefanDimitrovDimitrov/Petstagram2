@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 # Create your views here.
 from Petstagram2.common.forms import CommentForm
 from Petstagram2.common.models import Comment
+from Petstagram2.core.clean_up import clean_up_files
 from Petstagram2.pets.form import PetForm, EditPetForm
 from Petstagram2.pets.models import Pet, Like
 
@@ -45,6 +46,7 @@ def pet_details(request, pk):
     pet = Pet.objects.get(pk=pk)
     pet.likes_count = pet.like_set.count()
     comments = pet.comment_set.all()
+    print(pet)
     context = {
         'pet': pet,
         'comment_form': CommentForm(initial={'pet_pk':pk}),
@@ -52,6 +54,7 @@ def pet_details(request, pk):
     }
 
     return render(request, 'pet_detail.html', context)
+
 
 
 def comment_pet(request, pk):
@@ -71,7 +74,7 @@ def like_pet(request, pk):
 
 def create_pet(request):
     if request.method == 'POST':
-        form = EditPetForm(request.POST)
+        form = EditPetForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('list pets')
@@ -82,13 +85,16 @@ def create_pet(request):
 def edit_pet(request, pk):
     pet = Pet.objects.get(pk=pk)
     if request.method == 'POST':
-        form = PetForm(request.POST,instanse=pet)
+        old_image = pet.image
+        form = EditPetForm(request.POST,request.FILES, instance=pet)
         if form.is_valid():
+            if old_image:
+                clean_up_files(old_image.path)
             form.save()
             return redirect('list pets')
 
     context = {
-        'form': EditPetForm(instanse=pet),
+        'form': EditPetForm(instance=pet),
         'pet': pet
     }
     return render(request, 'pet_edit.html', context)

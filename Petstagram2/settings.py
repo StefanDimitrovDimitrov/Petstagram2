@@ -9,12 +9,11 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+from os.path import join
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-)^(brjcx_2aa#k!&m1p61e5@o-e_gtaz8iy74vp*@&u@rqd(#*
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -72,26 +70,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Petstagram2.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'pets_db',
-        'USER': 'postgres',
-        'PASSWORD': '1234qwe',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'pets_db',
+#         'USER': 'postgres',
+#         'PASSWORD': '1234qwe',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -111,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
@@ -125,11 +121,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = ''
+STATICFILES_DIRS = (
+    join(BASE_DIR, 'static'),
+)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
