@@ -51,6 +51,10 @@ def pet_details(request, pk):
         'pet': pet,
         'comment_form': CommentForm(initial={'pet_pk':pk}),
         'comments': comments,
+        'can_delete': request.user == pet.user.user,
+        'can_edit': request.user == pet.user.user,
+        'can_like': request.user != pet.user.user,
+        'can_comment': request.user != pet.user.user,
     }
 
     return render(request, 'pet_detail.html', context)
