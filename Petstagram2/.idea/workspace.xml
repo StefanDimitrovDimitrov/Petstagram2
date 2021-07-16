@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="80cd04c7-0c4d-481f-acc0-114581efb95b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/pets/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pets/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="80cd04c7-0c4d-481f-acc0-114581efb95b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,7 +20,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../ExamPrep1/Expenses_Tracker2" />
   </component>
   <component name="RunManager">
     <configuration name="Petstagram2" type="Python.DjangoServer" factoryName="Django server">
@@ -34,6 +29,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="settings" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
@@ -61,6 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1623408456137</updated>
       <workItem from="1623408457295" duration="31000" />
+      <workItem from="1626019876797" duration="52000" />
     </task>
     <servers />
   </component>
